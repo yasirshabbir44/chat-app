@@ -66,6 +66,8 @@ The application provides a RESTful API for sending and retrieving chat messages.
     }
     ```
 
+<img alt="Screenshot of Login" height="500" src="./doc/login.png" width="800"/>
+
 2. Send a chat message:
 
     ```http
@@ -77,12 +79,15 @@ The application provides a RESTful API for sending and retrieving chat messages.
         "message": "Hello, world!"
     }
     ```
+<img alt="Screenshot of Send Message" height="500" src="./doc/send-message.png" width="800"/>
+
 
 3. Retrieve all chat messages:
 
     ```http
     GET /messages
     ```
+<img alt="Screenshot of Get All Message" height="500" src="./doc/get-message.png" width="800"/>
 
 ## Contributing
 
