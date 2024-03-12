@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ChatService {
     List<ChatMessage> getAllMessages();
+
     void saveMessage(ChatMessage message);
 }

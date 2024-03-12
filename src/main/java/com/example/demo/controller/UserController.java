@@ -1,10 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.config.JwtTokenProvider;
-import com.example.demo.dto.JwtResponse;
 import com.example.demo.dto.LoginForm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +22,7 @@ public class UserController {
     private JwtTokenProvider jwtTokenProvider;
 
     @PostMapping("login")
-        public ResponseEntity<?> login(@RequestBody LoginForm loginForm) {
+    public ResponseEntity<?> login(@RequestBody LoginForm loginForm) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginForm.getUsername(), loginForm.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);

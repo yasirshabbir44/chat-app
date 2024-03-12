@@ -1,10 +1,12 @@
 package com.example.demo.service;
-;
+
 import com.example.demo.model.ChatMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+;
 
 @Component
 public class ChatroomInitializer implements ApplicationRunner {
