@@ -23,7 +23,7 @@ The application provides a RESTful API for sending and retrieving chat messages.
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/chat-message-app.git
+    git clone https://github.com/yasirshabbir44/chat-app.git
     ```
 
 2. Navigate to the project directory:
@@ -48,12 +48,25 @@ The application provides a RESTful API for sending and retrieving chat messages.
 
 ## API Endpoints
 
-- **POST /messages**: Send a chat message.
-- **GET /messages**: Retrieve all chat messages.
+- **POST /api/login**: Login User.
+- **POST /api/messages**: Send a chat message.
+- **GET /api/messages**: Retrieve all chat messages.
 
 ## Usage
 
-1. Send a chat message:
+1. Login:
+
+    ```http
+    POST /api/login
+    Content-Type: application/json
+
+    {
+        "username": "admin",
+        "password": "password"
+    }
+    ```
+
+2. Send a chat message:
 
     ```http
     POST /messages
@@ -65,7 +78,7 @@ The application provides a RESTful API for sending and retrieving chat messages.
     }
     ```
 
-2. Retrieve all chat messages:
+3. Retrieve all chat messages:
 
     ```http
     GET /messages
