@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.dto.JwtResponse;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,19 +20,24 @@ public class JwtTokenProvider {
     @Value("${jwt.expiration}")
     private int jwtExpirationInMs;
 
-    public String generateToken(Authentication authentication) {
+    public JwtResponse generateToken(Authentication authentication) {
         User userPrincipal = (User) authentication.getPrincipal();
 
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
 
-        return Jwts.builder()
+        String token = Jwts.builder()
                 .setSubject(userPrincipal.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
-    }
 
+        // Customize the response object with additional information as needed
+        String tokenType = "Bearer";
+        long expiresInMs = jwtExpirationInMs;
+
+        return new JwtResponse(token, tokenType, expiresInMs, expiryDate);
+    }
     // Other methods for token validation, parsing, etc.
 }
